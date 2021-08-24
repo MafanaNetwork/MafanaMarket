@@ -93,6 +93,34 @@ public class MarketShopGui {
             if(!new NBTItem(listing.getItem()).getString("ItemType").contains(itemType.getLore())) {
                 continue;
             }
+            if(itemType == ItemType.ARMOR) {
+                if(!new NBTItem(listing.getItem()).getString("ItemType").contains(ItemType.LEGGGINGS.getLore()) || !new NBTItem(listing.getItem()).getString("ItemType").contains(ItemType.CHESTPLATE.getLore())
+                        || !new NBTItem(listing.getItem()).getString("ItemType").contains(ItemType.BOOTS.getLore()) || !new NBTItem(listing.getItem()).getString("ItemType").contains(ItemType.HELMET.getLore())) {
+                    continue;
+                }
+                ItemStack item = listing.getItem();
+                ItemMeta itemMeta = item.getItemMeta();
+                List<String> itemLore = new ArrayList<>();
+                for(String string : itemMeta.getLore()){
+                    itemLore.add(string);
+                }
+                itemLore.add(ChatColor.DARK_GRAY + "");
+                itemLore.add("------------------------");
+                itemLore.add(ChatColor.DARK_GRAY + "Price: $" + listing.getPrice());
+                if(listing.getPlayer().isOnline()) {
+                    itemLore.add(ChatColor.DARK_GRAY + "Seller: " + listing.getPlayer().getDisplayName() + " " + ChatColor.GREEN + "[ONLINE]");
+                } else {
+                    itemLore.add(ChatColor.DARK_GRAY + "Seller: " + listing.getPlayer().getDisplayName() + " " + ChatColor.RED + "[OFFLINE]");
+                }
+                itemLore.add(ChatColor.DARK_GRAY + "Listing UUID: " + listing.getUuid().toString());
+                itemLore.add(ChatColor.DARK_GRAY + "");
+                itemLore.add(ChatColor.DARK_GRAY + "Click to buy!");
+                itemLore.add("------------------------");
+                itemMeta.setLore(itemLore);
+                item.setItemMeta(itemMeta);
+                item = NBTUtils.setString(item, "ListUUID", listing.getUuid().toString());
+                gui.addItem(new GuiItem(item));
+            }
             ItemStack item = listing.getItem();
             ItemMeta itemMeta = item.getItemMeta();
             List<String> itemLore = new ArrayList<>();

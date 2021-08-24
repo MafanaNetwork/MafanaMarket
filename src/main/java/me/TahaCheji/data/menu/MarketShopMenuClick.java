@@ -58,6 +58,9 @@ public class MarketShopMenuClick implements Listener {
         if(e.getSlot() == 38) {
             new MarketShopGui().getMarketShopGui().open(player);
         }
+        if(e.getSlot() == 39) {
+            new MarketShopGui().getMarketShopGui(ItemType.ARMOR).open(player);
+        }
         if(e.getSlot() == 49) {
             player.closeInventory();
         }

@@ -51,7 +51,7 @@ public class ShopsGui implements InventoryHolder {
         if(shops.getOwner().getUniqueId().toString().contains(player.getUniqueId().toString())) {
             gui = Bukkit.createInventory(null, 54, ChatColor.GOLD + "" + ChatColor.BOLD + "Your Shop");
             List<String> lore = new ArrayList<>();
-            ItemStack newItem = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
+            ItemStack newItem = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
             ItemMeta newmeta = newItem.getItemMeta();
             newmeta.setDisplayName(ChatColor.GRAY + "");
             newmeta.setLore(lore);
@@ -101,7 +101,7 @@ public class ShopsGui implements InventoryHolder {
         } else  {
             gui = Bukkit.createInventory(null, 54, ChatColor.GOLD + "" + ChatColor.BOLD + shops.getOwner().getDisplayName() + "'s Shop");
             List<String> lore = new ArrayList<>();
-            ItemStack newItem = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
+            ItemStack newItem = new ItemStack(Material.GREEN_STAINED_GLASS_PANE);
             ItemMeta newmeta = newItem.getItemMeta();
             newmeta.setDisplayName(ChatColor.GRAY + "");
             newmeta.setLore(lore);

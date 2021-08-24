@@ -68,6 +68,9 @@ public class MarketShopMenu implements InventoryHolder {
         if(type == ItemType.TOOL) {
             item = new ItemStack(Material.WOODEN_PICKAXE);
         }
+        if(type == ItemType.ARMOR) {
+            item = new ItemStack(Material.NETHERITE_INGOT);
+        }
         if(type == null) {
             item = new ItemStack(Material.GOLD_NUGGET);
             ItemMeta meta = item.getItemMeta();
@@ -89,6 +92,9 @@ public class MarketShopMenu implements InventoryHolder {
         lore.add("--------------------------");
         lore.add(ChatColor.GOLD + "Click to see all " + type.getLore() +  " listings");
         lore.add("--------------------------");
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.setLore(lore);
         item.setItemMeta(meta);
         return item;
@@ -141,6 +147,7 @@ public class MarketShopMenu implements InventoryHolder {
         gui.setItem(30, getClickItem(ItemType.CHESTPLATE));
         gui.setItem(37, getClickItem(ItemType.HELMET));
         gui.setItem(38, getClickItem(null));
+        gui.setItem(39, getClickItem(ItemType.ARMOR));
         gui.setItem(25, getShopInfo(player));
         gui.setItem(49, getCloseShop());
 

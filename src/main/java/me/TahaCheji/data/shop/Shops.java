@@ -14,7 +14,6 @@ import java.util.UUID;
 public class Shops {
 
     private final Player owner;
-    private List<Listing> items = new ArrayList<>();
     private final UUID uuid;
 
     public Shops(Player owner, UUID uuid) {

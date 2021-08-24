@@ -1,0 +1,9 @@
+name: MafanaMarket
+version: ${project.version}
+main: me.TahaCheji.Main
+api-version: 1.16
+authors: [ TahaCheji ]
+description: A place where players can open up shops and list things
+
+commands:
+  MafanaMarket:

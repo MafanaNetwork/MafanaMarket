@@ -32,8 +32,7 @@ public class Shops {
     }
 
     public void addListing(Listing listing) throws IOException {
-        getItems().add(listing);
-        saveShop();
+        ListingData.saveListing(listing, this);
     }
 
     public Player getOwner() {
